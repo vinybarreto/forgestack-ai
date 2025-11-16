@@ -1,4 +1,4 @@
-import { Breadcrumb } from '@/components/breadcrumb';
+import { PageBreadcrumb } from '@/components/page-breadcrumb';
 import { Heading } from '@/components/ui/heading';
 import { Separator } from '@/components/ui/separator';
 import { NewLeadForm } from '@/features/crm/components/new-lead-form';
@@ -6,7 +6,7 @@ import { NewLeadForm } from '@/features/crm/components/new-lead-form';
 export default function NewLeadPage() {
   return (
     <div className='flex-1 space-y-4 p-4 pt-6 md:p-8'>
-      <Breadcrumb
+      <PageBreadcrumb
         items={[
           { title: 'Dashboard', link: '/dashboard' },
           { title: 'CRM', link: '/dashboard/crm' },

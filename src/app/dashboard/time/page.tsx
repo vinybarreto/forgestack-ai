@@ -1,4 +1,4 @@
-import { Breadcrumb } from '@/components/breadcrumb';
+import { PageBreadcrumb } from '@/components/page-breadcrumb';
 import { Heading } from '@/components/ui/heading';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -8,7 +8,7 @@ import { Play, Pause } from 'lucide-react';
 export default function TimeTrackingPage() {
   return (
     <div className='flex-1 space-y-4 p-4 pt-6 md:p-8'>
-      <Breadcrumb
+      <PageBreadcrumb
         items={[
           { title: 'Dashboard', link: '/dashboard' },
           { title: 'Time Tracking', link: '/dashboard/time' }

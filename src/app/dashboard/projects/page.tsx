@@ -1,4 +1,4 @@
-import { Breadcrumb } from '@/components/breadcrumb';
+import { PageBreadcrumb } from '@/components/page-breadcrumb';
 import { Heading } from '@/components/ui/heading';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
@@ -12,7 +12,7 @@ export default async function ProjectsPage() {
 
   return (
     <div className='flex-1 space-y-4 p-4 pt-6 md:p-8'>
-      <Breadcrumb
+      <PageBreadcrumb
         items={[
           { title: 'Dashboard', link: '/dashboard' },
           { title: 'Projects', link: '/dashboard/projects' }
