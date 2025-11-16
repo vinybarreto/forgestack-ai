@@ -1,126 +1,200 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/9113740/201498864-2a900c64-d88f-4ed4-b5cf-770bcb57e1f5.png">
-  <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/9113740/201498152-b171abb8-9225-487a-821c-6ff49ee48579.png">
-</picture>
+# ForgeStack Internal System
 
-<div align="center"><strong>Next.js Admin Dashboard Starter Template With Shadcn-ui</strong></div>
-<div align="center">Built with the Next.js 15 App Router</div>
-<br />
-<div align="center">
-<a href="https://dub.sh/shadcn-dashboard">View Demo</a>
-<span>
-</div>
+Sistema interno de gestão para ForgeStack - CRM, Project Management, Invoicing, Time Tracking e Client Portal.
 
-## Overview
+## Visão Geral
 
-This is a starter template using the following stack:
+Sistema all-in-one para gerenciar operações de consultoria:
+- **CRM** - Gestão de leads com pipeline e BANT scoring
+- **Projects** - Gestão de projetos, milestones e tasks
+- **Invoices** - Geração de faturas portuguesas (Recibo Verde)
+- **Time Tracking** - Controle de horas e análise de rentabilidade
+- **Client Portal** - Portal self-service para clientes
+- **Analytics** - Dashboards e métricas de negócio
 
-- Framework - [Next.js 15](https://nextjs.org/13)
-- Language - [TypeScript](https://www.typescriptlang.org)
-- Auth - [Clerk](https://go.clerk.com/ILdYhn7)
-- Error tracking  [<picture><img alt="Sentry" src="public/assets/sentry.svg">
-        </picture>](https://sentry.io/for/nextjs/?utm_source=github&utm_medium=paid-community&utm_campaign=general-fy26q2-nextjs&utm_content=github-banner-project-tryfree)
-- Styling - [Tailwind CSS v4](https://tailwindcss.com)
-- Components - [Shadcn-ui](https://ui.shadcn.com)
-- Schema Validations - [Zod](https://zod.dev)
-- State Management - [Zustand](https://zustand-demo.pmnd.rs)
-- Search params state manager - [Nuqs](https://nuqs.47ng.com/)
-- Tables - [Tanstack Data Tables](https://ui.shadcn.com/docs/components/data-table) • [Dice table](https://www.diceui.com/docs/components/data-table)
-- Forms - [React Hook Form](https://ui.shadcn.com/docs/components/form)
-- Command+k interface - [kbar](https://kbar.vercel.app/)
-- Linting - [ESLint](https://eslint.org)
-- Pre-commit Hooks - [Husky](https://typicode.github.io/husky/)
-- Formatting - [Prettier](https://prettier.io)
+## Tech Stack
 
-_If you are looking for a Tanstack start dashboard template, here is the [repo](https://git.new/tanstack-start-dashboard)._
+- **Frontend**: Next.js 15 (App Router) + React 19 + TypeScript
+- **UI**: shadcn/ui + Tailwind CSS
+- **Database**: Supabase PostgreSQL
+- **ORM**: Drizzle ORM
+- **Auth**: Clerk
+- **Deploy**: Vercel
 
-## Pages
+## Quick Start
 
-| Pages                                                                                 | Specifications                                                                                                                                                                                                                                                          |
-| :------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Signup / Signin](https://go.clerk.com/ILdYhn7)      | Authentication with **Clerk** provides secure authentication and user management with multiple sign-in options including passwordless authentication, social logins, and enterprise SSO - all designed to enhance security while delivering a seamless user experience. |
-| [Dashboard (Overview)](https://shadcn-dashboard.kiranism.dev/dashboard)    | Cards with Recharts graphs for analytics. Parallel routes in the overview sections feature independent loading, error handling, and isolated component rendering. |
-| [Product](https://shadcn-dashboard.kiranism.dev/dashboard/product)         | Tanstack tables with server side searching, filter, pagination by Nuqs which is a Type-safe search params state manager in nextjs                                                                                                                                       |
-| [Product/new](https://shadcn-dashboard.kiranism.dev/dashboard/product/new) | A Product Form with shadcn form (react-hook-form + zod).                                                                                                                                                                                                                |
-| [Profile](https://shadcn-dashboard.kiranism.dev/dashboard/profile)         | Clerk's full-featured account management UI that allows users to manage their profile and security settings                                                                                                                                                             |
-| [Kanban Board](https://shadcn-dashboard.kiranism.dev/dashboard/kanban)     | A Drag n Drop task management board with dnd-kit and zustand to persist state locally.                                                                                                                                                                                  |
-| [Not Found](https://shadcn-dashboard.kiranism.dev/dashboard/notfound)      | Not Found Page Added in the root level                                                                                                                                                                                                                                  |
-| [Global Error](https://sentry.io/for/nextjs/?utm_source=github&utm_medium=paid-community&utm_campaign=general-fy26q2-nextjs&utm_content=github-banner-project-tryfree)           | A centralized error page that captures and displays errors across the application. Integrated with **Sentry** to log errors, provide detailed reports, and enable replay functionality for better debugging. |
-
-## Feature based organization
-
-```plaintext
-src/
-├── app/ # Next.js App Router directory
-│ ├── (auth)/ # Auth route group
-│ │ ├── (signin)/
-│ ├── (dashboard)/ # Dashboard route group
-│ │ ├── layout.tsx
-│ │ ├── loading.tsx
-│ │ └── page.tsx
-│ └── api/ # API routes
-│
-├── components/ # Shared components
-│ ├── ui/ # UI components (buttons, inputs, etc.)
-│ └── layout/ # Layout components (header, sidebar, etc.)
-│
-├── features/ # Feature-based modules
-│ ├── feature/
-│ │ ├── components/ # Feature-specific components
-│ │ ├── actions/ # Server actions
-│ │ ├── schemas/ # Form validation schemas
-│ │ └── utils/ # Feature-specific utilities
-│ │
-├── lib/ # Core utilities and configurations
-│ ├── auth/ # Auth configuration
-│ ├── db/ # Database utilities
-│ └── utils/ # Shared utilities
-│
-├── hooks/ # Custom hooks
-│ └── use-debounce.ts
-│
-├── stores/ # Zustand stores
-│ └── dashboard-store.ts
-│
-└── types/ # TypeScript types
-└── index.ts
+### 1. Instalar Dependências
+```bash
+npm install
 ```
 
-## Getting Started
+### 2. Configurar Variáveis de Ambiente
 
-> [!NOTE]  
-> We are using **Next 15** with **React 19**, follow these steps:
-
-Clone the repo:
-
-```
-git clone https://github.com/Kiranism/next-shadcn-dashboard-starter.git
+Copie `.env.example` para `.env`:
+```bash
+cp .env.example .env
 ```
 
-- `pnpm install` ( we have legacy-peer-deps=true added in the .npmrc)
-- Create a `.env.local` file by copying the example environment file:
-  `cp env.example.txt .env.local`
-- Add the required environment variables to the `.env.local` file.
-- `pnpm run dev`
+Preencha as variáveis necessárias:
+- Supabase URL e keys
+- Database URL (PostgreSQL)
+- Clerk keys (auth)
 
-##### Environment Configuration Setup
+### 3. Setup do Banco de Dados
 
-To configure the environment for this project, refer to the `env.example.txt` file. This file contains the necessary environment variables required for authentication and error tracking.
+```bash
+# Gerar e aplicar schema
+npm run db:push
 
-You should now be able to access the application at http://localhost:3000.
+# (Opcional) Abrir Drizzle Studio
+npm run db:studio
+```
 
-> [!WARNING]
-> After cloning or forking the repository, be cautious when pulling or syncing with the latest changes, as this may result in breaking conflicts.
+### 4. Rodar o Projeto
 
-Cheers! 🥂
+```bash
+npm run dev
+```
 
-## Star History
+Acesse: http://localhost:3000
 
-<a href="https://www.star-history.com/#Kiranism/next-shadcn-dashboard-starter&type=date&legend=top-left">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Kiranism/next-shadcn-dashboard-starter&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Kiranism/next-shadcn-dashboard-starter&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Kiranism/next-shadcn-dashboard-starter&type=date&legend=top-left" />
- </picture>
-</a>
+## Estrutura do Projeto
 
+```
+forgestack-internal/
+├── src/
+│   ├── app/                    # Next.js App Router
+│   │   ├── dashboard/
+│   │   │   ├── crm/           # Módulo CRM
+│   │   │   ├── projects/      # Módulo Projects
+│   │   │   ├── invoices/      # Módulo Invoices
+│   │   │   ├── time/          # Módulo Time Tracking
+│   │   │   └── overview/      # Dashboard principal
+│   │   └── client-portal/     # Portal do Cliente (público)
+│   ├── components/
+│   │   ├── ui/                # shadcn/ui components
+│   │   └── layout/            # Layout components
+│   ├── features/              # Features organizadas por módulo
+│   │   ├── crm/
+│   │   ├── projects/
+│   │   ├── invoices/
+│   │   └── time-tracking/
+│   └── lib/
+│       ├── db/                # Drizzle schema e config
+│       ├── actions/           # Server Actions
+│       └── supabase/          # Supabase clients
+└── drizzle/                   # Migrations
+```
+
+## Módulos Implementados (MVP)
+
+### CRM
+- ✅ Listagem de leads
+- ✅ Criação de leads
+- ✅ Pipeline Kanban (estrutura)
+- ✅ BANT scoring (schema)
+- ⏳ Edição de leads
+- ⏳ Automated follow-ups
+
+### Projects
+- ✅ Listagem de projetos
+- ✅ Estrutura de milestones
+- ⏳ Criação de projetos
+- ⏳ Tasks e subtasks
+- ⏳ Kanban board de tasks
+
+### Invoices
+- ✅ Estrutura básica
+- ⏳ Geração de faturas
+- ⏳ PDF export (Recibo Verde)
+- ⏳ Payment tracking
+
+### Time Tracking
+- ✅ UI básica
+- ⏳ Timer funcional
+- ⏳ Integração com tasks
+- ⏳ Relatórios de rentabilidade
+
+### Client Portal
+- ✅ Estrutura básica
+- ⏳ Token-based access
+- ⏳ Project progress view
+- ⏳ Document repository
+
+## Scripts Disponíveis
+
+```bash
+npm run dev              # Rodar em desenvolvimento
+npm run build            # Build para produção
+npm run start            # Rodar produção
+npm run lint             # Lint código
+npm run format           # Format código com Prettier
+
+# Database
+npm run db:generate      # Gerar migrations
+npm run db:push          # Aplicar schema no banco
+npm run db:studio        # Abrir Drizzle Studio
+```
+
+## Setup Completo
+
+Para instruções detalhadas de setup, consulte [SETUP.md](./SETUP.md)
+
+## Roadmap
+
+### Phase 1: MVP (Current)
+- [x] Setup projeto
+- [x] Database schema completo
+- [x] Estrutura de todos os módulos
+- [ ] CRM funcional
+- [ ] Projects funcional
+- [ ] Basic invoicing
+
+### Phase 2: Core Features
+- [ ] Email automation
+- [ ] Time tracking completo
+- [ ] Client portal funcional
+- [ ] Analytics dashboard
+
+### Phase 3: Advanced
+- [ ] Stripe integration
+- [ ] PDF generation (invoices)
+- [ ] Multi-tenant
+- [ ] API pública
+
+## Deployment
+
+### Vercel (Recomendado)
+
+1. Push para GitHub
+2. Conectar repositório no Vercel
+3. Configurar variáveis de ambiente
+4. Deploy!
+
+### Manual
+
+```bash
+npm run build
+npm run start
+```
+
+## Contribuindo
+
+Este é um projeto interno da ForgeStack. Para contribuir:
+
+1. Crie uma branch: `git checkout -b feature/nome-da-feature`
+2. Commit suas mudanças: `git commit -m 'Add some feature'`
+3. Push para a branch: `git push origin feature/nome-da-feature`
+4. Abra um Pull Request
+
+## Licença
+
+Propriedade da ForgeStack. Todos os direitos reservados.
+
+## Suporte
+
+Para questões ou suporte, contacte: vinicius@forgestack.com
+
+---
+
+**Desenvolvido com ❤️ pela equipe ForgeStack**

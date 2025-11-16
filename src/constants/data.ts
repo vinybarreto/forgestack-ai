@@ -19,44 +19,53 @@ export const navItems: NavItem[] = [
     icon: 'dashboard',
     isActive: false,
     shortcut: ['d', 'd'],
-    items: [] // Empty array as there are no child items for Dashboard
+    items: []
   },
   {
-    title: 'Product',
-    url: '/dashboard/product',
+    title: 'CRM',
+    url: '/dashboard/crm',
+    icon: 'user',
+    shortcut: ['c', 'r'],
+    isActive: false,
+    items: []
+  },
+  {
+    title: 'Projects',
+    url: '/dashboard/projects',
     icon: 'product',
     shortcut: ['p', 'p'],
     isActive: false,
-    items: [] // No child items
+    items: []
+  },
+  {
+    title: 'Invoices',
+    url: '/dashboard/invoices',
+    icon: 'billing',
+    shortcut: ['i', 'i'],
+    isActive: false,
+    items: []
+  },
+  {
+    title: 'Time Tracking',
+    url: '/dashboard/time',
+    icon: 'timer',
+    shortcut: ['t', 't'],
+    isActive: false,
+    items: []
   },
   {
     title: 'Account',
-    url: '#', // Placeholder as there is no direct link for the parent
-    icon: 'billing',
-    isActive: true,
-
+    url: '#',
+    icon: 'settings',
+    isActive: false,
     items: [
       {
         title: 'Profile',
         url: '/dashboard/profile',
         icon: 'userPen',
         shortcut: ['m', 'm']
-      },
-      {
-        title: 'Login',
-        shortcut: ['l', 'l'],
-        url: '/',
-        icon: 'login'
       }
     ]
-  },
-  {
-    title: 'Kanban',
-    url: '/dashboard/kanban',
-    icon: 'kanban',
-    shortcut: ['k', 'k'],
-    isActive: false,
-    items: [] // No child items
   }
 ];
 
